@@ -68,7 +68,10 @@ export function index(req, res) {
 
 // Gets a single Group from the DB with its corresponding recs
 export function show(req, res) {
-  return Group.findById(req.params.id).populate('recs').exec()
+  return Group.findById(req.params.id).populate({
+      path : 'recs',
+      populate: {path: 'user' }
+  }).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));

@@ -1,14 +1,15 @@
 'use strict';
 
-(function($scope, $http){
+(function($scope, $http, $state){
 
 class LobbyComponent {
-  constructor($scope, $http) {
+  constructor($scope, $http, $state) {
     this.message = 'Hello';
       
     $scope.goToGroup = function(id) {
-        console.log('suh');
         console.log(id);
+        $state.go('group', {id: id});
+        
     }
       
     $http.get('/api/groups').success(function(groups) {

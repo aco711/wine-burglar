@@ -1,31 +1,9 @@
-<!DOCTYPE html>
-<html>
-<body>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
-<script type='text/javascript' src='app/reccomendation/reccomendation.controller.js'></script>
-<script type='text/javascript' src='app/reccomendation/reccomendation.directive.js'></script>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-
-<div 
-     ng-app="myApp" ng-controller="addContentCtrl" >
-    <form>
-        <section>
-            <input ng-model="content_link">
-            <label >Content Link</label>
-        </section>
-        <section>
-            <input ng-model="addedBy">
-            <label>Added By</label>
-        </section>
-        <section>
-            <input type="checkbox" value="Consumed" ng-model="consumed">
-        </section>
-        <input type="button" value="adds" ng-click="add_content()">
-    </form>
-    <add-content ng-repeat="c in addedContent" content="c.link" user="c.user" consumed="c.consumed"></add-content>
-    <input type="submit" value="Submit" ng-click="submit_content()">
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card card-block">
+    <a ng-click="goToContent()" class="card-title">{{rec.content}}</a>
+      <p class="card-text">{{rec.user.name}}</p>
+        <button class="btn btn-primary">Consumed</button>
+    </div>
+  </div>
 </div>
-</body>
-</html>

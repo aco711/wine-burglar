@@ -8,7 +8,7 @@ angular.module('wineBurglarApp')
         template: '<lobby></lobby>'
       })
     .state('group', {
-        url: '/group/:id',
+        url: '/group/{id}',
         template: '<group></group>'
 //        templateUrl: 'app/lobby/group/group.html',
 //        controller: 'GroupController'

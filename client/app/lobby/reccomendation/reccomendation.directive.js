@@ -3,12 +3,11 @@
 angular.module('wineBurglarApp')
   .directive('reccomendation', function () {
     return {
-      templateUrl: 'app/reccomendation/reccomendation.html',
+      templateUrl: 'app/lobby/reccomendation/reccomendation.html',
       scope: {
-        contentLink: '=content',
-        addedBy: '=user',
-        isConsumed: '=consumed'
+        rec: '=reccomend'
       },
+      controller : reccomendationController,
       restrict: 'EA',
       link: function (scope, element, attrs) {
       }
