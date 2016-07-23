@@ -4,10 +4,11 @@
 
   class MainController {
 
-    constructor($http, $scope, socket) {
+    constructor($http, $scope, socket, $state) {
       this.$http = $http;
       this.socket = socket;
       this.awesomeThings = [];
+      this.$state = $state;
 
       $scope.$on('$destroy', function() {
         socket.unsyncUpdates('thing');
@@ -29,6 +30,11 @@
         });
         this.newThing = '';
       }
+    }
+      
+    goToLobby() {
+        console.log('suh');
+        this.$state.go('lobby');
     }
 
     deleteThing(thing) {
