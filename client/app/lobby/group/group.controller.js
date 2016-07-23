@@ -1,8 +1,19 @@
 'use strict';
 
-function groupController() {
-  this.message = 'Hello';
+(function($scope, $http){
+
+class GroupComponent {
+  constructor($scope, $http) {
+    this.message = 'Hello';
+   
+  }
 }
 
 angular.module('wineBurglarApp')
-  .controller('GroupController', groupController);
+  .component('group', {
+    templateUrl: 'app/lobby/group/group.html',
+    controller: groupComponent,
+    controllerAs: 'groupCtrl'
+  });
+
+})();

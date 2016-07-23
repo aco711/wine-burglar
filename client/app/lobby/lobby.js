@@ -9,8 +9,9 @@ angular.module('wineBurglarApp')
       })
     .state('group', {
         url: '/group/:id',
-        templateUrl: 'app/lobby/group/group.html',
-        controller: 'GroupController'
+        template: '<group></group>'
+//        templateUrl: 'app/lobby/group/group.html',
+//        controller: 'GroupController'
       });
         
   });

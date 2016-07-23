@@ -11,7 +11,7 @@
 
 import _ from 'lodash';
 import Group from './group.model';
-
+import Rec from '../rec/rec.model';
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -66,9 +66,9 @@ export function index(req, res) {
     .catch(handleError(res));
 }
 
-// Gets a single Group from the DB
+// Gets a single Group from the DB with its corresponding recs
 export function show(req, res) {
-  return Group.findById(req.params.id).exec()
+  return Group.findById(req.params.id).populate('recs').exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
