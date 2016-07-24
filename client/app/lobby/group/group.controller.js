@@ -1,15 +1,32 @@
 'use strict';
 
-(function($scope, $http, $stateParams){
+(function($scope, $http, $stateParams, $uibModal){
 
 class GroupComponent {
-  constructor($scope, $http, $stateParams) {
+  constructor($scope, $http, $stateParams, $uibModal) {
     $http.get('/api/groups/' + $stateParams.id).success(function(group) {
          $scope.group = group
   })
     .error(function(err) {
         console.log(err);
-    }) 
+    })
+    
+    $scope.addRec = function (size) {
+    var addRecModal = $uibModal.open({
+      templateUrl: 'app/lobby/group/addRec/addRec.html',
+      controller: 'AddRecController',
+      size: size,
+      scope:$scope
+     });
+    }
+    
+//    addRecModal.result.then(function () {
+//
+//    }, function () {
+//    });
+    
+    
+    
   }
 }
 
