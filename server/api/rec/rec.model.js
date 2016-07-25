@@ -3,10 +3,10 @@
 import mongoose from 'mongoose';
 
 var RecSchema = new mongoose.Schema({
-    name: String,
+    description: String,
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-    content: String,
-    consumed: Boolean
+    group: {type: mongoose.Schema.Types.ObjectId, ref: 'Group'},
+    link: String
 });
 
 export default mongoose.model('Rec', RecSchema);

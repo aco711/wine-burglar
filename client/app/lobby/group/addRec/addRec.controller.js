@@ -5,12 +5,13 @@ function addRecController($scope, Auth, $http) {
     console.log($scope.group._id);
     
     $scope.ok = function () {
+        console.log($scope.link);
     var data = 
         {
-             name: $scope.name,
+             description: $scope.description,
              user: Auth.getCurrentUser()._id,
-             content: $scope.link,
-             consume: true
+             link: $scope.link,
+             group : $scope.group._id
         }
          $http.post('/api/recs', data).then(function () {
              console.log('suh')

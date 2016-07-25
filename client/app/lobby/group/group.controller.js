@@ -4,12 +4,24 @@
 
 class GroupComponent {
   constructor($scope, $http, $stateParams, $uibModal) {
+   
+    //on load
     $http.get('/api/groups/' + $stateParams.id).success(function(group) {
          $scope.group = group
-  })
+    })
     .error(function(err) {
         console.log(err);
     })
+    
+    $http.get('/api/recs/group/' + $stateParams.id).success(function(recs) {
+         $scope.recs = recs
+    })
+    .error(function(err) {
+        console.log(err);
+    })
+    
+    
+    
     
     $scope.addRec = function (size) {
     var addRecModal = $uibModal.open({

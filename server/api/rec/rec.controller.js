@@ -73,6 +73,16 @@ export function show(req, res) {
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
+    
+//Gets a list of Recs from the DB based on group Id
+    
+export function showByGroupId(req, res) {
+    return Rec.find({
+        group : req.params.groupId
+    }).exec()
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
 
 // Creates a new Rec in the DB
 export function create(req, res) {
