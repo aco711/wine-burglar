@@ -21,7 +21,8 @@ var UserSchema = new Schema({
     required: true
   },
   provider: String,
-  salt: String
+  salt: String, 
+  groups : [{type: mongoose.Schema.Types.ObjectId, ref: 'Group'}]
 });
 
 /**
