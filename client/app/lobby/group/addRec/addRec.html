@@ -4,12 +4,12 @@
         <div class="modal-body">
             <ul>
                 <div>                
-                    <input ng-model="description" placeholder="Description">
+                    <input ng-model="addRecCtrl.description" placeholder="Description">
                 </div>
-                <input ng-model="link" placeholder="Put a link here">
+                <input ng-model="addRecCtrl.link" placeholder="Put a link here">
             </ul>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-primary" type="button" ng-click="addRecCtrl.ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="addRecCtrl.cancel()">Cancel</button>
         </div>

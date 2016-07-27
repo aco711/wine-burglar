@@ -1,8 +1,7 @@
 
-<i class="fa fa-plus fa-2x" aria-hidden="true"></i>
-<button type="button" class="btn btn-default" ng-click="addRec()">Open me!</button>
+<button type="button" class="btn btn-default" ng-click="groupCtrl.addRec()">Add Rec</button>
 
 
 <div>
-    <reccomendation ng-repeat="rec in recs" reccomend="rec"></reccomendation>
+    <reccomendation class="col-md-6" ng-repeat="rec in groupCtrl.recs" reccomend="rec"></reccomendation>
 </div>

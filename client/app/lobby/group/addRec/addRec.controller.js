@@ -1,17 +1,18 @@
 'use strict';
 
-function addRecController($scope, Auth, $http) {
+function addRecController($scope, Auth, $http, groupId) {
   this.message = 'Hello';
-    console.log($scope.group._id);
+    this.id = groupId;
+    this.link = '';
     
-    $scope.ok = function () {
-        console.log($scope.link);
+    this.ok = () => {
+
     var data = 
         {
-             description: $scope.description,
+             description: this.description,
              user: Auth.getCurrentUser()._id,
-             link: $scope.link,
-             group : $scope.group._id
+             link: this.link,
+             group : this.id
         }
          $http.post('/api/recs', data).then(function () {
              console.log('suh')

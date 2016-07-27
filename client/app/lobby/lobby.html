@@ -1,2 +1,5 @@
 
-<li ng-click="goToGroup(group._id)" ng-repeat="group in groupsArray" class="list-group-item ">{{group.name}}</li>
+
+<ul class="list-group">
+<li ng-click="lobbyCtrl.goToGroup(group._id)" ng-repeat="group in lobbyCtrl.groupsArray" class="list-group-item ">{{group.name}}</li>
+</ul>

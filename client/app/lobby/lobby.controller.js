@@ -1,28 +1,33 @@
 'use strict';
 
-(function($scope, $http, $state){
+(function($http, $state, Auth){
 
 class LobbyComponent {
-  constructor($scope, $http, $state) {
+  constructor($http, $state, Auth) {
     this.message = 'Hello';
+    this.groupsArray = [];
       
-    $scope.goToGroup = function(id) {
+    this.goToGroup = function(id) {
         console.log(id);
         $state.go('group', {id: id});
-        
     }
+    
+//    this.groupsArray = Auth.getCurrentUser().groups || [];
       
-    $http.get('/api/groups').success(function(groups) {
-         $scope.groupsArray = groups;   
-  })
+    $http.get('/api/groups').success(groups => {
+            console.log(groups);
+            this.groupsArray = groups; 
+        })
     .error(function(err) {
         console.log(err)
         console.log("suh")
         
     });
-  }
-}
+      console.log(this.groupsArray)
 
+  }
+
+}
 angular.module('wineBurglarApp')
   .component('lobby', {
     templateUrl: 'app/lobby/lobby.html',
